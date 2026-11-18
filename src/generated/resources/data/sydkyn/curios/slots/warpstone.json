@@ -1,0 +1,11 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "waystones"
+    }
+  ],
+  "icon": "sydkyn:slot/warpstone",
+  "order": 200,
+  "size": 1
+}
