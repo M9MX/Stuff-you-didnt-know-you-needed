@@ -23,5 +23,9 @@ run
 # Mod jars dropped into libs/ are for local dev runs only
 libs/*.jar
 
+# Local release note drafts
+Releases.md
+
 # Data generator hash cache
 src/generated/resources/.cache/
+/src/main/resources/assets/sydkyn/logo_whitebg.png
