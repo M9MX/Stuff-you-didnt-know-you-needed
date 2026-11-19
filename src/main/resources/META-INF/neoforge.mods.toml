@@ -11,6 +11,9 @@ logoFile = "assets/sydkyn/logo.png"
 authors = "${mod_authors}"
 description = '''${mod_description}'''
 
+[[mixins]]
+config = "sydkyn.mixins.json"
+
 [[dependencies."${mod_id}"]]
 modId = "neoforge"
 type = "required"
@@ -35,6 +38,20 @@ side = "BOTH"
 [[dependencies."${mod_id}"]]
 modId = "waystones"
 type = "optional"
-versionRange = "[21.1.0,)"
+versionRange = "[21.1.0,21.2.0)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "aether"
+type = "optional"
+versionRange = "[1.5.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "accessories"
+type = "optional"
+versionRange = "[1.1.0-beta.0,)"
 ordering = "AFTER"
 side = "BOTH"

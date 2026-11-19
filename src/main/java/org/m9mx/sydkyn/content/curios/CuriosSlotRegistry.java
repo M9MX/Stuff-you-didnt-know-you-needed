@@ -1,6 +1,7 @@
 package org.m9mx.sydkyn.content.curios;
 
 import java.util.List;
+import org.m9mx.sydkyn.helpers.AccessorySystems;
 import org.m9mx.sydkyn.mod.waystones.WarpstoneSlot;
 
 /**
@@ -17,14 +18,14 @@ public final class CuriosSlotRegistry {
     static void generate(SydkynCuriosDataProvider provider) {
         provider.createSlot(WarpstoneSlot.ID)
                 .size(1)
-                .order(200)
+                .order(WarpstoneSlot.ORDER)
                 .icon(WarpstoneSlot.ICON)
-                .addCondition(WarpstoneSlot.condition());
+                .addCondition(WarpstoneSlot.condition(AccessorySystems.CURIOS));
 
         // Curios hands slots to no entity by default.
         provider.createEntities("player")
                 .addPlayer()
                 .addSlots(WarpstoneSlot.ID)
-                .addCondition(WarpstoneSlot.condition());
+                .addCondition(WarpstoneSlot.condition(AccessorySystems.CURIOS));
     }
 }

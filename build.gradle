@@ -19,6 +19,10 @@ repositories {
         url = 'https://maven.theillusivec4.top/'
     }
     maven {
+        name = 'Wisp Forest'
+        url = 'https://maven.wispforest.io/releases/'
+    }
+    maven {
         name = 'Modrinth'
         url = 'https://api.modrinth.com/maven'
         content {
@@ -87,10 +91,22 @@ processResources {
 dependencies {
     // Curios: compile against the API, ship nothing.
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+
+
+    // Accessories: same deal. The Aether bundles its own copy, so never add both at once.
+    compileOnly("io.wispforest:accessories-neoforge:${accessories_api_version}") {
+        transitive = false
+    }
 
     // Dev only. Not dependencies, not bundled.
+    // The standalone Accessories jar overrides the one bundled inside The Aether; keep it,
+    // Aether's bundled build (beta.48) cannot apply its EntityRenderersMixin in a dev client.
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
     runtimeOnly "maven.modrinth:waystones:${waystones_version}"
     runtimeOnly "maven.modrinth:balm:${balm_version}"
+    //runtimeOnly "maven.modrinth:aether:${aether_version}"
+    runtimeOnly "maven.modrinth:accessories:${accessories_version}"
+    runtimeOnly "maven.modrinth:owo-lib:${owo_version}"
+
     runtimeOnly fileTree(dir: 'libs', include: ['*.jar'])
 }

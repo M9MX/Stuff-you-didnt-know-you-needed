@@ -1,0 +1,12 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "sydkyn:slot_system",
+      "system": "theaether"
+    }
+  ],
+  "replace": false,
+  "values": [
+    "waystones:warp_stone"
+  ]
+}

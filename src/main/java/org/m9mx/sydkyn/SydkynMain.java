@@ -2,16 +2,34 @@ package org.m9mx.sydkyn;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import org.m9mx.sydkyn.config.SydkynConfig;
+import org.m9mx.sydkyn.helpers.SlotSystemCondition;
+import org.m9mx.sydkyn.content.accessories.AccessoryPredicates;
 import org.m9mx.sydkyn.content.network.SydkynNetwork;
 
 @Mod(Sydkyn.MODID)
 public final class SydkynMain {
+
     public SydkynMain(IEventBus modBus, ModContainer container) {
         container.registerConfig(ModConfig.Type.COMMON, SydkynConfig.SPEC);
         modBus.addListener(SydkynConfig::onLoad);
         modBus.addListener(SydkynNetwork::register);
+        modBus.addListener(SydkynMain::registerCondition);
+
+        if (ModList.get().isLoaded("accessories")) {
+            AccessoryPredicates.register();
+        }
+    }
+
+    private static void registerCondition(RegisterEvent event) {
+        event.register(
+                NeoForgeRegistries.Keys.CONDITION_CODECS,
+                helper -> helper.register(Sydkyn.id("slot_system"), SlotSystemCondition.CODEC)
+        );
     }
 }
