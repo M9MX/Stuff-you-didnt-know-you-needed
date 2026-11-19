@@ -1,8 +1,17 @@
 {
   "neoforge:conditions": [
     {
-      "type": "neoforge:mod_loaded",
-      "modid": "waystones"
+      "type": "neoforge:and",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "waystones"
+        },
+        {
+          "type": "sydkyn:slot_system",
+          "system": "curios"
+        }
+      ]
     }
   ],
   "entities": [

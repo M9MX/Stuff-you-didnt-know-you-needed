@@ -22,7 +22,8 @@ public record ActivateWarpstonePayload() implements CustomPacketPayload {
     }
 
     public static void handle(ActivateWarpstonePayload payload, IPayloadContext context) {
-        ServerPlayer player = (ServerPlayer) context.player();
-        context.enqueueWork(() -> WarpstoneActivation.activate(player));
+        if (context.player() instanceof ServerPlayer player) {
+            context.enqueueWork(() -> WarpstoneActivation.activate(player));
+        }
     }
 }

@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "sydkyn:slot_system",
+      "system": "accessories"
+    }
+  ],
+  "entities": [
+    "minecraft:player"
+  ],
+  "replace": false,
+  "slots": [
+    "warpstone"
+  ]
+}

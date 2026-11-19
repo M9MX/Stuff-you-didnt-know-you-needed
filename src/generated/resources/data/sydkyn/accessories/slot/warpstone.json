@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "sydkyn:slot_system",
+      "system": "accessories"
+    }
+  ],
+  "amount": 1,
+  "icon": "sydkyn:gui/slot/warpstone",
+  "operation": "set",
+  "order": 200,
+  "replace": false,
+  "validators": [
+    "sydkyn:warpstone"
+  ]
+}
